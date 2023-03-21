@@ -52,8 +52,8 @@ variable "law_retention_in_days" {
 
 variable "law_sku" {
   type        = string
-  default     = "Free"
-  description = "The sku for the `Log Analytics Workspace`. Available options `Free`, `Standard`, or `Premium`."
+  default     = "PerGB2018"
+  description = "The sku for the `Log Analytics Workspace`. Available options `PerGB2018`, `Standard`, or `Premium`."
 }
 
 ### Telemetry ###
