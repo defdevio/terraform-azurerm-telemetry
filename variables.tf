@@ -46,14 +46,14 @@ variable "law_name" {
 
 variable "law_retention_in_days" {
   type        = number
-  default     = 7
+  default     = 30
   description = "The number of days to retain logs/metrics in days in the `Log Analytics Workspace`."
 }
 
 variable "law_sku" {
   type        = string
-  default     = "PerGB2018"
-  description = "The sku for the `Log Analytics Workspace`. Available options `PerGB2018`, `Standard`, or `Premium`."
+  default     = "PerNode"
+  description = "The sku for the `Log Analytics Workspace`. Available options are `PerNode`."
 }
 
 ### Telemetry ###
