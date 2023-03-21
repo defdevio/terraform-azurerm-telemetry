@@ -34,7 +34,7 @@ variable "law_destination_type" {
 
 variable "law_name" {
   type        = string
-  default     = ""
+  default     = "law"
   description = "The name to provide to the `Log Analytics Workspace` resource."
 }
 
