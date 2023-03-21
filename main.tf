@@ -12,7 +12,7 @@ resource "azurerm_log_analytics_workspace" "law" {
 resource "azurerm_monitor_diagnostic_setting" "telemetry" {
   for_each                       = var.target_resource_ids
   log_analytics_destination_type = var.law_destination_type
-  log_analytics_workspace_id     = try(azurerm_log_analytics_workspace.law.id, var.law_resource_id)
+  log_analytics_workspace_id     = try(azurerm_log_analytics_workspace.law[0].id, var.law_resource_id)
   target_resource_id             = each.key
 
   dynamic "enabled_log" {
