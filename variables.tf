@@ -8,6 +8,12 @@ variable "location" {
   description = "The Azure region where the `Log Analytics Workspace` resource will be provisioned."
 }
 
+variable "resource_count" {
+  type        = number
+  default     = 0
+  description = "The number of diagnostic settings to provision."
+}
+
 variable "resource_group_name" {
   type        = string
   description = "The Azure resource group where the resources will be provisioned."
