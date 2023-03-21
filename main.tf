@@ -11,6 +11,7 @@ resource "azurerm_log_analytics_workspace" "law" {
 
 resource "azurerm_monitor_diagnostic_setting" "telemetry" {
   for_each                       = var.target_resource_ids
+  name                           = "${var.environment}-${var.location}-diag"
   log_analytics_destination_type = var.law_destination_type
   log_analytics_workspace_id     = try(azurerm_log_analytics_workspace.law[0].id, var.law_resource_id)
   target_resource_id             = each.key
@@ -22,7 +23,7 @@ resource "azurerm_monitor_diagnostic_setting" "telemetry" {
     }
   }
 
-  dymaic "metric" {
+  dynamic "metric" {
     for_each = var.metric_categories
     content {
       category = metric.key
