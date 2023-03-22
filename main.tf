@@ -19,14 +19,14 @@ resource "azurerm_monitor_diagnostic_setting" "telemetry" {
   dynamic "enabled_log" {
     for_each = var.log_categories
     content {
-      category = enabled_log.key
+      category = enabled_log.value
     }
   }
 
   dynamic "metric" {
     for_each = var.metric_categories
     content {
-      category = metric.key
+      category = metric.value
     }
   }
 }
